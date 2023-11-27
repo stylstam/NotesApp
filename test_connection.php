@@ -8,4 +8,3 @@ if ($conn) {
 }
 
 $conn->close();
-?>

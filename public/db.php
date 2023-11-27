@@ -24,7 +24,11 @@ if (!$result || $result->num_rows === 0) {
     $createDbQuery = "CREATE DATABASE $db";
     if ($conn->query($createDbQuery) === TRUE) {
         echo "Database '$db' created successfully.";
+        // Read the SQL file and execute the commands
+        $sqlFile = file_get_contents('NotesApp\notes_app.sql');
+        $pdo->exec($sqlFile);
     } else {
+        echo "Database '$db' already exists.";
         die("Error creating database: " . $conn->error);
     }
 }
@@ -42,7 +46,7 @@ if ($conn->connect_error) {
 ?>
 
 
-/*
+<!--
 This script does the following:
 
 Creates a temporary connection to the MySQL server without specifying a database (null is used for the database name).
@@ -50,4 +54,4 @@ Checks if the 'notes_app' database exists by querying the INFORMATION_SCHEMA.SCH
 If the database does not exist, it creates the 'notes_app' database using the CREATE DATABASE query.
 Closes the temporary connection.
 Opens a new connection to the 'notes_app' database.
-*/
+-->

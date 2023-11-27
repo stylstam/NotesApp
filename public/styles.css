@@ -1,0 +1,70 @@
+/* WEBSITE WIDE STYLES */
+html{
+    background-color: #343541;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo {
+    height: 50px;
+}
+
+h1 {
+    position: relative;
+    display: inline-block;
+}
+
+a h1 {
+    color: white;
+    text-decoration: none;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+a h1:hover {
+    color: #ffcc00;
+}
+
+/* #movingImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Initially hidden */ /*
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+h1:hover + #movingImage {
+    transform: translate(-50%, -50%) scale(1.2); /* Adjust the scale factor as needed */ /*
+    opacity: 1;
+} */
+
+
+/* NAV MENU STYLES */
+
+nav {
+    background-color: #343541;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}

@@ -12,7 +12,7 @@ function displayNotes(notes) {
 }
 
 // Event listener for noteForm submission
-document.getElementById('noteForm').addEventListener('submit', function(event) {
+document.getElementById('noteForm').addEventListener('submit', function (event) {
     event.preventDefault();
     // Implement AJAX request to save the note
 });
