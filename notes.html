@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>My Notes</h2>
+    <button onclick="logout()">Logout</button>
+
+    <div id="notesContainer">
+        <!-- Display user's notes here -->
+    </div>
+
+    <form id="noteForm">
+        <label for="noteTitle">Title:</label>
+        <input type="text" id="noteTitle" name="noteTitle" required>
+        
+        <label for="noteContent">Content:</label>
+        <textarea id="noteContent" name="noteContent" required></textarea>
+        
+        <button type="submit">Save Note</button>
+    </form>
+
+    <script src="main.js"></script>
+</body>
+</html>
