@@ -2,6 +2,7 @@
 html {
     background-color: #343541;
     color: white;
+    transition: all 0.3s;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -21,30 +22,20 @@ h1 {
     display: inline-block;
 }
 
-a h1 {
-    /* color: white; */
-    text-decoration: none;
-}
-
 a {
-    /* color: white; */
+    color: white;
     text-decoration: none;
-}
-
-a h1:hover {
-    color: #63624F;
-    transition: all 0.3s;
 }
 
 
 /* WEBSITE WIDE USED CLASSES START*/
 
-.dark-text {
-    color: white;
+/* LIGHT MODE SETTINGS */
+.light {
+    background-color: white;
+    color: black;
 }
-.dark-bg {
-    background-color: #343541;
-}
+
 
 .text-center {
     text-align: center;
@@ -168,3 +159,34 @@ input {
   button:hover {
     background-color: #2980b9;
   } */
+
+
+
+  input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #262626;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+label {
+    transform: translateY(-50%);
+    color: #8a8a8a;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease-out;
+}
+
+input:focus + label, input:not(:placeholder-shown) + label {
+    top: 8px;
+    font-size: 16px;
+}
+
+/* Optional: Add some animation for a smoother transition */
+input, label {
+    transition: 0.3s;
+}

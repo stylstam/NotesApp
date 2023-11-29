@@ -1,4 +1,3 @@
-
 /* NAV MENU STYLES */
 
 nav {
@@ -17,21 +16,36 @@ nav li {
 }
 
 .nava {
+    background-color: transparent;
     text-decoration: none;
-    color: white;
     font-weight: bold;
+    margin: auto;
+    width: fit-content;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .nava:hover {
-    color: #ffcc00;
+    color: #ACAA97;
+    transition: all 0.5s ease;
 }
 
 
-.logo {
+.hLogo {
     height: 50px;
+    transition: all 0.5s ease;
+    transform: translate(0px, 15px);
 }
 
+.nava:hover .hLogo {
+    transform: translate(0px, 15px) scale(1.1);
+    transition: all 0.5s ease;
+}
 
+.container {
+    text-align: center;
+}
 
 #svg-image {
     height: 32px;
@@ -39,18 +53,26 @@ nav li {
 }
 
 
+#svg-container:hover {
+    color: #9799AC;
+    transition: all 0.3s ease;
+
+}
 #svg-container {
     width: fit-content;
     position: relative;
     top: -35px;
     left: 100%;
-    display: inline-block;
+    padding: 10px 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
-    transition: opacity 0.8s ease;
+    transform: translate(-5rem, 0);
+    transition: all 0.3s ease;
 }
 
 #svg-text {
     margin-top: 10px;
-    position: relative;
-    right: 50%;
 }
