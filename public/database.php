@@ -1,8 +1,9 @@
 <?php
-    // Appwide Head file
-    include 'head.php';
-    ?>
-    
+// Appwide Head file
+include 'head.php';
+?>
+</head>
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -28,16 +29,16 @@ if ($result->num_rows === 0) {
     // Database does not exist, create it
     $createDatabaseSQL = "CREATE DATABASE $databaseName";
     if ($conn->query($createDatabaseSQL) === TRUE) {
-      
-      
-        $conn-> query("CREATE TABLE users (
+
+
+        $conn->query("CREATE TABLE users (
             id INT PRIMARY KEY AUTO_INCREMENT,
             username VARCHAR(255) UNIQUE NOT NULL,
             password VARCHAR(255) NOT NULL
         );");
-        
+
         // -- Table for notes
-        $conn-> query ("CREATE TABLE notes (
+        $conn->query("CREATE TABLE notes (
             id INT PRIMARY KEY AUTO_INCREMENT,
             user_id INT,
             title VARCHAR(255) NOT NULL,
@@ -54,8 +55,8 @@ if ($result->num_rows === 0) {
     }
 } else {
     echo "Database $databaseName already exists.";
-    $conn-> query ("SELECT id, title, content FROM notes *);");
-    $conn-> query ("SELECT id, username, password FROM users *);");
+    $conn->query("SELECT id, title, content FROM notes *);");
+    $conn->query("SELECT id, username, password FROM users *);");
 }
 
 $conn->close();

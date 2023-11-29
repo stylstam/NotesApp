@@ -46,12 +46,11 @@ if ($conn->connect_error) {
 ?>
 
 
-<!--
+<!-- 
 This script does the following:
 
 Creates a temporary connection to the MySQL server without specifying a database (null is used for the database name).
 Checks if the 'notes_app' database exists by querying the INFORMATION_SCHEMA.SCHEMATA table.
 If the database does not exist, it creates the 'notes_app' database using the CREATE DATABASE query.
 Closes the temporary connection.
-Opens a new connection to the 'notes_app' database.
--->
+Opens a new connection to the 'notes_app' database. -->

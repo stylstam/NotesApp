@@ -1,14 +1,13 @@
 <?php
 require_once 'database.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-
-    <?php
-    // Appwide Head file
-    include 'head.php';
-    
+<?php
+// Appwide Head file
+include 'head.php';
+?>
+</head>
+<?php
 
 // Get a list of tables in the database
 $result = $conn->query("SHOW TABLES");
@@ -22,7 +21,8 @@ while ($row = $result->fetch_row()) {
     $tableName = $row[0];
 
     echo "<h2>$tableName Table</h2>";
-    echo "<table border='1'><tr>";
+    echo "<table border='1'>
+    <tr>";
 
     // Get column names
     $columnsResult = $conn->query("SHOW COLUMNS FROM $tableName");
@@ -43,7 +43,8 @@ while ($row = $result->fetch_row()) {
         echo "</tr>";
     }
 
-    echo "</table>";
+    echo "
+</table>";
 }
 
 // Free the result sets

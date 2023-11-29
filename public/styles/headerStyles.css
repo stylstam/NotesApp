@@ -1,0 +1,56 @@
+
+/* NAV MENU STYLES */
+
+nav {
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.nava {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nava:hover {
+    color: #ffcc00;
+}
+
+
+.logo {
+    height: 50px;
+}
+
+
+
+#svg-image {
+    height: 32px;
+    display: flex;
+}
+
+
+#svg-container {
+    width: fit-content;
+    position: relative;
+    top: -35px;
+    left: 100%;
+    display: inline-block;
+    cursor: pointer;
+    transition: opacity 0.8s ease;
+}
+
+#svg-text {
+    margin-top: 10px;
+    position: relative;
+    right: 50%;
+}

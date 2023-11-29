@@ -26,13 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-    <?php
-    // Include the footer.php file
-    include 'head.php';
-    ?>
+<?php
+// Include the footer.php file
+include 'head.php';
+?>
+</head>
 
 
 <body>
@@ -40,17 +38,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Include the footer.php file
     include 'header.php';
     ?>
+    <div class="form">
+        <h2 class="text-center">User Registration</h2>
+        <form id="registerForm" action="register.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-<h2>User Registration</h2>
-    <form id="registerForm" action="register.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <button type="submit">Register</button>
-    </form>
+            <button class="btn-main" type="submit">Register</button>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -22,34 +22,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
 }
- 
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-
-    <?php
-    // Include the footer.php file
-    include 'head.php';
-    ?>
-
+<?php
+// Include the footer.php file
+include 'head.php';
+?>
+</head>
 
 <body>
     <?php
     // Include the footer.php file
     include 'header.php';
     ?>
-    <h2>User Login</h2>
-    <form id="loginForm" action="login.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <div class="form">
+        <h2 class="text-center">Login</h2>
+        <form id="loginForm" action="login.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <button type="submit">Login</button>
-    </form>
+            <button class="btn-main" type="submit">Login</button>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -28,14 +28,11 @@ $conn->close();
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-
-    <?php
-    // Include the footer.php file
-    include 'head.php';
-    ?>
+<?php
+// Include the footer.php file
+include 'head.php';
+?>
+</head>
 
 
 <body>
@@ -43,25 +40,25 @@ $conn->close();
     // Include the footer.php file
     include 'header.php';
     ?>
-    <h2>My Notes</h2>
-    <button onclick="logout()">Logout</button>
+    <div class="form">
+        <h2 class="text-center">My Notes</h2>
+        <button onclick="logout()">Logout</button>
 
-    <div id="notesContainer">
-        <!-- Display user's notes here -->
+        <div id="notesContainer">
+            <!-- Display user's notes here -->
+        </div>
+
+        <form id="noteForm">
+            <label for="noteTitle">Title:</label>
+            <input type="text" id="noteTitle" name="noteTitle" required>
+
+            <label for="noteContent">Content:</label>
+            <textarea id="noteContent" name="noteContent" required></textarea>
+
+            <button type="submit">Save Note</button>
+        </form>
     </div>
-
-    <form id="noteForm">
-        <label for="noteTitle">Title:</label>
-        <input type="text" id="noteTitle" name="noteTitle" required>
-
-        <label for="noteContent">Content:</label>
-        <textarea id="noteContent" name="noteContent" required></textarea>
-
-        <button type="submit">Save Note</button>
-    </form>
-
     <script src="main.js"></script>
 </body>
 
 </html>
-
