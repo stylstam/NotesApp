@@ -1,14 +1,18 @@
 <?php
 // db.php
 
-$host = 'localhost';
+
 $port = 3306;
-$db   = 'notes_app';
-$user = 'root';
-$pass = 'root';
+$db = "notes_app";
+
+?>
+<?php
+include 'serverCreds.php';
+?>
+<?php
 
 // Create a new mysqli connection
-$conn = new mysqli($host, $user, $pass, null, $port);
+$conn = new mysqli($servername, $username, $password, null, $port);
 
 // Check if the connection was successful
 if ($conn->connect_error) {
@@ -28,7 +32,7 @@ if (!$result || $result->num_rows === 0) {
         $sqlFile = file_get_contents('NotesApp\notes_app.sql');
         $pdo->exec($sqlFile);
     } else {
-        echo "Database '$db' already exists.";
+        echo "Database '$db' already exists. ";
         die("Error creating database: " . $conn->error);
     }
 }
@@ -37,7 +41,7 @@ if (!$result || $result->num_rows === 0) {
 $conn->close();
 
 // Create a new connection to the specific database
-$conn = new mysqli($host, $user, $pass, $db, $port);
+$conn = new mysqli($servername, $username, $password, $db, $port);
 
 // Check if the connection to the database was successful
 if ($conn->connect_error) {

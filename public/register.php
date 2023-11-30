@@ -38,14 +38,14 @@ include 'head.php';
     // Include the footer.php file
     include 'header.php';
     ?>
-    <div class="form">
+    <div class="formContainer">
         <h2 class="text-center">User Registration</h2>
-        <form id="registerForm" action="register.php" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <form class="form" id="registerForm" action="register.php" method="post">
+            <label class="label" for="username">Username:</label>
+            <input class="input" type="text" id="username" name="username" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label class="label" for="password">Password:</label>
+            <input class="input" type="password" id="password" name="password" required>
 
             <button class="btn-main" type="submit">Register</button>
         </form>

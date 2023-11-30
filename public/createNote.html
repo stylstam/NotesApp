@@ -1,0 +1,25 @@
+<?php
+// Include the footer.php file
+include 'head.php';
+?>
+</head>
+
+
+<body>
+    <div class="formContainer">
+
+        <h1>Create a New Note</h1>
+        <form class="form" action="createNote.php" method="post">
+            <label class="label" for="title">Title:</label>
+            <input class="input" type="text" id="title" name="title" required>
+            <br>
+            <label class="label" for="content">Content:</label>
+            <textarea class="input" id="content" name="content" required></textarea>
+            <br>
+            <button class="btn-main" type="submit">Create Note</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

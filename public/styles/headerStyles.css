@@ -1,51 +1,75 @@
-/* NAV MENU STYLES */
-
-nav {
-    padding: 10px;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    display: inline;
-    margin-right: 10px;
-}
-
+/* TITLE STYLE */
 .nava {
+    /* nav menu anchor elements */
     background-color: transparent;
+    /* to avoid background recolouring during theme change */
     text-decoration: none;
     font-weight: bold;
-    margin: auto;
-    width: fit-content;
-    display: inline-block;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .nava:hover {
     color: #ACAA97;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
+.hText,
+.hLogo {
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
 
 .hLogo {
     height: 50px;
-    transition: all 0.5s ease;
-    transform: translate(0px, 15px);
+}
+
+.hLogo {
+    display: inline-block;
 }
 
 .nava:hover .hLogo {
-    transform: translate(0px, 15px) scale(1.1);
-    transition: all 0.5s ease;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.nava:hover .hText {
+    font-size: 35px;
+    transition: all 0.3s ease;
 }
 
 .container {
     text-align: center;
 }
+
+#headerT {
+    height: 80px;
+    /* To avoid whole page relocation when hovering over title */
+}
+
+
+/* NAV MENU STYLE */
+
+.hNav {
+    padding: 10px;
+
+    width: 75%;
+    text-wrap: pretty;
+}
+
+.hNav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hNav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* THEME SWITCH */
 
 #svg-image {
     height: 32px;
@@ -58,11 +82,16 @@ nav li {
     transition: all 0.3s ease;
 
 }
+
 #svg-container {
+
+    /* to avoid container covering other elements or being clickable from affar */
     width: fit-content;
     position: relative;
     top: -35px;
     left: 100%;
+
+    /* to make it pretty */
     padding: 10px 5px;
     border-radius: 5px;
     display: flex;

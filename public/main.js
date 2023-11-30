@@ -10,8 +10,9 @@ function logout() {
 function displayNotes(notes) {
 
     // Loop through the notes and print them
-    notes.forEach(function(note) {
-      console.log(note);
+    notes.forEach(function (note) {
+        console.log(note);
+    });
 }
 
 // Event listener for noteForm submission

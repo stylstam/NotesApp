@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->fetch() && password_verify($password, $hashed_password)) {
         $_SESSION['user_id'] = $user_id;
         $_SESSION['username'] = $user;
-        header("Location: notes.php");
+        header("Location: index.php");
     } else {
         echo "Invalid username or password";
     }
@@ -36,14 +36,14 @@ include 'head.php';
     // Include the footer.php file
     include 'header.php';
     ?>
-    <div class="form">
+    <div class="formContainer">
         <h2 class="text-center">Login</h2>
-        <form id="loginForm" action="login.php" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <form class="form" id="loginForm" action="login.php" method="post">
+            <label class="label" for="username">Username:</label>
+            <input class="input" type="text" id="username" name="username" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label class="label" for="password">Password:</label>
+            <input class="input" type="password" id="password" name="password" required>
 
             <button class="btn-main" type="submit">Login</button>
         </form>

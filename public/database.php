@@ -1,63 +1,58 @@
 <?php
-// Appwide Head file
-include 'head.php';
 ?>
-</head>
+    <?php
+    include 'serverCreds.php';
+    ?>
+    <?php
 
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check if the database "notes_app" exists
-$databaseName = "notes_app";
-$result = $conn->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$databaseName'");
-
-if (!$result) {
-    die("Error checking database existence: " . $conn->error);
-}
-
-if ($result->num_rows === 0) {
-    // Database does not exist, create it
-    $createDatabaseSQL = "CREATE DATABASE $databaseName";
-    if ($conn->query($createDatabaseSQL) === TRUE) {
-
-
-        $conn->query("CREATE TABLE users (
-            id INT PRIMARY KEY AUTO_INCREMENT,
-            username VARCHAR(255) UNIQUE NOT NULL,
-            password VARCHAR(255) NOT NULL
-        );");
-
-        // -- Table for notes
-        $conn->query("CREATE TABLE notes (
-            id INT PRIMARY KEY AUTO_INCREMENT,
-            user_id INT,
-            title VARCHAR(255) NOT NULL,
-            content TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-            FOREIGN KEY (user_id) REFERENCES users(id)
-        );");
-
-
-        echo "Database $databaseName created successfully.";
-    } else {
-        echo "Error creating database: " . $conn->error;
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
-} else {
-    echo "Database $databaseName already exists.";
-    $conn->query("SELECT id, title, content FROM notes *);");
-    $conn->query("SELECT id, username, password FROM users *);");
-}
 
-$conn->close();
-?>
+    // Create a new database
+    $databaseName = "notes_app"; // Replace with your desired database name
+    $createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS $databaseName";
+    if ($conn->query($createDatabaseQuery) === TRUE) {
+        echo "Database created successfully\n";
+    } else {
+        echo "Error creating database: " . $conn->error . "\n";
+        return;
+    }
+
+    // Switch to the created database
+    $conn->select_db($databaseName);
+
+    // Create Users table
+    $createUsersTableQuery = "CREATE TABLE IF NOT EXISTS Users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+    )";
+    if ($conn->query($createUsersTableQuery) === TRUE) {
+        echo "Users table created successfully\n";
+    } else {
+        echo "Error creating Users table: " . $conn->error . "\n";
+        return;
+    }
+
+    // Create Notes table
+    $createNotesTableQuery = "CREATE TABLE IF NOT EXISTS Notes (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        note_title VARCHAR(255) NOT NULL,
+        note_content TEXT,
+        posted_by VARCHAR(255) NOT NULL,
+    FOREIGN KEY (posted_by) REFERENCES users(username)
+    )";
+    if ($conn->query($createNotesTableQuery) === TRUE) {
+        echo "Notes table created successfully\n";
+    } else {
+        echo "Error creating Notes table: " . $conn->error . "\n";
+        return;
+    }
+
+    // Close connection
+    $conn->close();
