@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once(__DIR__ . '/../config/db.php');
 
 session_start();
@@ -41,4 +41,4 @@ mysqli_close($conn);
 // Redirect to the "View Notes" page
 header("Location: ../pages/viewNotes.php");
 exit();
-?>
+?> -->

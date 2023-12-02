@@ -1,0 +1,15 @@
+/* COLOURS */
+
+:root {
+    --text-color-DM: white ;
+    --background-color-DM: #343541;
+    --primary-color-DM: #4B4C5D;
+    --secondary-color-DM: #A5A5A8;
+    --extra-color-DM: #9799AC;
+    
+    --text-color-LM: #383444 ;
+    --background-color-LM: white;
+    --primary-color-LM: #2ecc71;
+    --secondary-color-LM: #343541;
+    --extra-color-LM: #383444 ;
+  }

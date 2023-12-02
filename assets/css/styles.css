@@ -1,7 +1,9 @@
+@import 'globalColours.css';
+
 /* WEBSITE WIDE STYLES */
 html {
-    background-color: #343541;
-    color: white;
+    background-color: var(--background-color-DM);
+    color: var(--text-color-DM);
     transition: all 0.3s ease;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -18,7 +20,7 @@ footer {
 }
 
 a {
-    color: white;
+    color: var(--text-color-DM);
     text-decoration: none;
 }
 
@@ -27,8 +29,8 @@ a {
 
 /* LIGHT MODE SETTINGS */
 .light {
-    background-color: white;
-    color: black;
+    background-color: var(--background-color-LM);
+    color: var(--text-color-LM);
 }
 
 
@@ -51,6 +53,14 @@ a {
     flex-direction: column;
 }
 
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
 .btn-main {
     display: inline-block;
     padding: 10px 20px;
@@ -59,38 +69,16 @@ a {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    border: 2px solid #63624F;
+    /* border: 2px solid var(--border-color-DM); */
     border-radius: 5px;
-    color: white;
-    background-color: #63624F;
+    color: var(--text-color-DM);
+    background-color: var(--primary-color-DM);
     transition: all 0.3s ease;
 }
 
 .btn-main:hover {
-    background-color: #ACAA97;
-    border-color: #ACAA97;
-    color: white;
-}
-
-.btn-scnd {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid #63624F;
-    border-radius: 5px;
-    color: white;
-    background-color: #63624F;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.btn-scnd:hover {
-    background-color: #ACAA97;
-    border-color: #ACAA97;
-    color: white;
+    background-color: var(--secondary-color-DM);
+    color: var(--text-color-DM);
 }
 
 /* WEBSITE WIDE USED CLASSES END */

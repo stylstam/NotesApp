@@ -19,12 +19,12 @@ if (!$result || $result->num_rows === 0) {
     // Database does not exist, create it
     $createDbQuery = "CREATE DATABASE $databaseName";
     if ($conn->query($createDbQuery) === TRUE) {
-        echo "Database '$databaseName' created successfully.";
+        echo '<p style="display: none;">Database ' . $databaseName . ' created successfully.';
         // Read the SQL file and execute the commands
         $sqlFile = file_get_contents('NotesApp\notes_app.sql');
         $pdo->exec($sqlFile);
     } else {
-        echo "Database '$databaseName' already exists. ";
+        echo '<p style="display: none;">Database ' . $databaseName . ' already exists. ';
         die("Error creating database: " . $conn->error);
     }
 }

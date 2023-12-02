@@ -29,29 +29,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_SESSION['username']) && !empty($noteId)) {
                 $postedBy = $_SESSION['username'];
 
-                    // Update note only if form fields are present in $_POST
-                    if (isset($_POST['title']) && isset($_POST['content'])) {
-                        $noteTitle = $_POST['title'];
-                        $noteContent = $_POST['content'];
+                // Update note only if form fields are present in $_POST
+                if (isset($_POST['title']) && isset($_POST['content'])) {
+                    $noteTitle = $_POST['title'];
+                    $noteContent = $_POST['content'];
 
-                        // Perform SQL update using prepared statement
-                        $updateNoteQuery = "UPDATE Notes SET note_title = ?, note_content = ? WHERE id = ? AND posted_by = ?";
-                        $updateNoteStmt = mysqli_prepare($conn, $updateNoteQuery);
-                        mysqli_stmt_bind_param($updateNoteStmt, "ssis", $noteTitle, $noteContent, $noteId, $postedBy);
-                        $updateNoteResult = mysqli_stmt_execute($updateNoteStmt);
+                    // Perform SQL update using prepared statement
+                    $updateNoteQuery = "UPDATE Notes SET note_title = ?, note_content = ? WHERE id = ? AND posted_by = ?";
+                    $updateNoteStmt = mysqli_prepare($conn, $updateNoteQuery);
+                    mysqli_stmt_bind_param($updateNoteStmt, "ssis", $noteTitle, $noteContent, $noteId, $postedBy);
+                    $updateNoteResult = mysqli_stmt_execute($updateNoteStmt);
 
-                        if ($updateNoteResult) {
-                            $_SESSION['note_updated'] = true;
-                        } else {
-                            echo "Error updating note: " . mysqli_stmt_error($updateNoteStmt);
-                        }
-
-                        // Close the prepared statement
-                        mysqli_stmt_close($updateNoteStmt);
+                    if ($updateNoteResult) {
+                        $_SESSION['note_updated'] = true;
                     } else {
-                        $_SESSION['error'] = "Form fields 'title' and 'content' are missing.";
+                        echo "Error updating note: " . mysqli_stmt_error($updateNoteStmt);
                     }
-                
+
+                    // Close the prepared statement
+                    mysqli_stmt_close($updateNoteStmt);
+                } else {
+                    $_SESSION['error'] = "Form fields 'title' and 'content' are missing.";
+                }
             } else {
                 echo "Invalid or missing note ID.";
             }
@@ -113,24 +112,28 @@ include(__DIR__ . '/../includes/header.php');
         echo "<p>Note updated successfully!</p>";
     }
     ?>
-    <form action="" method="post">
-        <input type="hidden" name="note_id" value="<?php echo (int)$noteId; ?>">
+    <div class="d-flex justify-content-center">
+        <div class="formContainer">
+            <form class="form" action="" method="post">
+                <input type="hidden" name="note_id" value="<?php echo (int)$noteId; ?>">
 
-        <label class="label" for="title">Note Title:</label>
-        <input class="input" type="text" name="title" value="<?php echo htmlspecialchars($noteTitle); ?>" required>
+                <label class="label" for="title">Note Title:</label>
+                <input class="input" type="text" name="title" value="<?php echo htmlspecialchars($noteTitle); ?>" required>
 
-        <label class="label" for="content">Note Content:</label>
-        <textarea class="input" name="content" required><?php echo htmlspecialchars($noteContent); ?></textarea>
+                <label class="label" for="content">Note Content:</label>
+                <textarea class="input" name="content" required><?php echo htmlspecialchars($noteContent); ?></textarea>
 
-        <button type="submit">Edit Note</button>
-    </form>
+                <button class="btn-main" type="submit">Edit Note</button>
+            </form>
 
-    <form action="../scripts/deleteNoteBnd.php" method="post">
-        <input type="hidden" name="note_id" value="<?php echo (int)$noteId; ?>">
-        <input type="hidden" name="delete_note" value="true">
+            <form action="../scripts/deleteNoteBnd.php" method="post">
+                <input type="hidden" name="note_id" value="<?php echo (int)$noteId; ?>">
+                <input type="hidden" name="delete_note" value="true">
 
-        <button type="submit" onclick="return confirm('Are you sure you want to delete this note?')">Delete Note</button>
-    </form>
+                <button class="btn-main" type="submit" onclick="return confirm('Are you sure you want to delete this note?')">Delete Note</button>
+            </form>
+        </div>
+    </div>
 
     <?php
     // Display success message for note deletion
@@ -147,3 +150,4 @@ include(__DIR__ . '/../includes/header.php');
 
 <?php // Close the database connection
 mysqli_close($conn);
+?>

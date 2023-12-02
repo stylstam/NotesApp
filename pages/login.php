@@ -42,17 +42,19 @@ include(__DIR__ . '/../includes/header.php');
     <p style="color: red;"><?php echo $loginError; ?></p>
 <?php endif; ?>
 
-<div class="formContainer">
-    <h2 class="text-center">Login</h2>
-    <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label class="label" for="username">Username:</label>
-        <input class="input" type="text" id="username" name="username" required>
+<div class="d-flex justify-content-center">
+    <div class="formContainer">
+        <h2 class="text-center formTitle">Login</h2>
+        <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <label class="label" for="username">Username:</label>
+            <input class="input" type="text" id="username" name="username" required>
 
-        <label class="label" for="password">Password:</label>
-        <input class="input" type="password" id="password" name="password" required>
+            <label class="label" for="password">Password:</label>
+            <input class="input" type="password" id="password" name="password" required>
 
-        <button class="btn-main" type="submit">Login</button>
-    </form>
+            <button class="btn-main" type="submit">Login</button>
+        </form>
+    </div>
 </div>
 </body>
 

@@ -65,23 +65,25 @@ $conn->close();
 
 <?php include(__DIR__ . '/../includes/header.php'); ?>
 
-<div class="formContainer">
-    <h2 class="text-center">User Registration</h2>
-    <form class="form" id="registerForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <label class="label" for="username">Username:</label>
-        <input class="input" type="text" id="username" name="username" required>
+<div class="d-flex justify-content-center">
+    <div class="formContainer">
+        <h2 class="text-center formTitle">User Registration</h2>
+        <form class="form" id="registerForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <label class="label" for="username">Username:</label>
+            <input class="input" type="text" id="username" name="username" required maxlength="20">
 
-        <label class="label" for="password">Password:</label>
-        <input class="input" type="password" id="password" name="password" required>
+            <label class="label" for="password">Password:</label>
+            <input class="input" type="password" id="password" name="password" required minlength="6" maxlength="20">
 
-        <button class="btn-main" type="submit">Register</button>
-    </form>
-    <div id="registrationResult">
-        <?php if (!empty($registrationMessage)) : ?>
-            <p style="color: <?php echo $registrationMessage === 'Registration successful!' ? 'green' : 'red'; ?>">
-                <?php echo $registrationMessage; ?>
-            </p>
-        <?php endif; ?>
+            <button class="btn-main" type="submit">Register</button>
+        </form>
+        <div id="registrationResult">
+            <?php if (!empty($registrationMessage)) : ?>
+                <p style="color: <?php echo $registrationMessage === 'Registration successful!' ? 'green' : 'red'; ?>">
+                    <?php echo $registrationMessage; ?>
+                </p>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
 

@@ -1,3 +1,5 @@
+@import 'globalColours.css';
+
 /* TITLE STYLE */
 .nava {
     /* nav menu anchor elements */
@@ -7,10 +9,25 @@
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin: 20px 10px;
+
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid var(--extra-color-DM)
 }
 
 .nava:hover {
-    color: #ACAA97;
+    color: var(--secondary-color-DM);
+    transition: all 0.3s ease;
+}
+
+.headerTitle:hover .hLogo {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.headerTitle:hover .hText {
+    font-size: 35px;
     transition: all 0.3s ease;
 }
 
@@ -29,15 +46,6 @@
     display: inline-block;
 }
 
-.nava:hover .hLogo {
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-}
-
-.nava:hover .hText {
-    font-size: 35px;
-    transition: all 0.3s ease;
-}
 
 .container {
     text-align: center;
@@ -60,13 +68,11 @@
 
 .hNav ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
 .hNav li {
     display: inline;
-    margin-right: 10px;
+    margin: auto 10px;
 }
 
 /* THEME SWITCH */

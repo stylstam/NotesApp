@@ -20,4 +20,6 @@ if ($conn->query($sql) === TRUE) {
 
 // Close connection
 $conn->close();
+header("Location: /pages/home.php");
+exit();
 ?>
