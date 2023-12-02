@@ -11,5 +11,5 @@ CREATE TABLE Notes (
     note_title VARCHAR(255) NOT NULL,
     note_content TEXT,
     posted_by VARCHAR(255) NOT NULL,
-    FOREIGN KEY (posted_by) REFERENCES users(username)
+    FOREIGN KEY (posted_by) REFERENCES Users(username)
 );

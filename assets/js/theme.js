@@ -7,8 +7,8 @@ function changeContent() {
     var svgText = document.getElementById('svg-text');
     var navaElements = document.querySelectorAll('.nava');
 
-    if (svgImage.src.endsWith('img/sun.svg')) {
-        svgImage.src = 'img/moon.svg';
+    if (svgImage.src.endsWith('/assets/img/sun.svg')) {
+        svgImage.src = '/assets/img/moon.svg';
         svgText.textContent = 'Dark Mode';
         document.documentElement.classList.add('light');
         navaElements.forEach(function(element) {
@@ -18,7 +18,7 @@ function changeContent() {
 
 
     } else {
-        svgImage.src = 'img/sun.svg';
+        svgImage.src = '/assets/img/sun.svg';
         svgText.textContent = 'Light Mode';
         document.documentElement.classList.remove('light');
         navaElements.forEach(function(element) {
@@ -28,10 +28,6 @@ function changeContent() {
     }
 
 
-    function changeAttributes() {
-        var paragraph = document.getElementById('my-paragraph');
 
-        paragraph.style.backgroundColor = '#e74c3c';
-    }
 
 }

@@ -1,5 +1,3 @@
-<?php
-?>
     <?php
     include 'serverCreds.php';
     ?>
@@ -43,9 +41,8 @@
     $createNotesTableQuery = "CREATE TABLE IF NOT EXISTS Notes (
         id INT AUTO_INCREMENT PRIMARY KEY,
         note_title VARCHAR(255) NOT NULL,
-        note_content TEXT,
-        posted_by VARCHAR(255) NOT NULL,
-    FOREIGN KEY (posted_by) REFERENCES users(username)
+        note_content VARCHAR(255),
+        posted_by VARCHAR(255) NOT NULL
     )";
     if ($conn->query($createNotesTableQuery) === TRUE) {
         echo "Notes table created successfully\n";

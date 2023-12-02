@@ -1,12 +1,4 @@
 <?php
-// db.php
-
-
-$port = 3306;
-$db = "notes_app";
-
-?>
-<?php
 include 'serverCreds.php';
 ?>
 <?php
@@ -19,20 +11,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the database 'notes_app' exists
-$query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$db'";
+// Check if the database '  notes_app' exists
+$query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$databaseName'";
 $result = $conn->query($query);
 
 if (!$result || $result->num_rows === 0) {
     // Database does not exist, create it
-    $createDbQuery = "CREATE DATABASE $db";
+    $createDbQuery = "CREATE DATABASE $databaseName";
     if ($conn->query($createDbQuery) === TRUE) {
-        echo "Database '$db' created successfully.";
+        echo "Database '$databaseName' created successfully.";
         // Read the SQL file and execute the commands
         $sqlFile = file_get_contents('NotesApp\notes_app.sql');
         $pdo->exec($sqlFile);
     } else {
-        echo "Database '$db' already exists. ";
+        echo "Database '$databaseName' already exists. ";
         die("Error creating database: " . $conn->error);
     }
 }
@@ -41,7 +33,7 @@ if (!$result || $result->num_rows === 0) {
 $conn->close();
 
 // Create a new connection to the specific database
-$conn = new mysqli($servername, $username, $password, $db, $port);
+$conn = new mysqli($servername, $username, $password, $databaseName, $port);
 
 // Check if the connection to the database was successful
 if ($conn->connect_error) {

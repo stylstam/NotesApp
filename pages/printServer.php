@@ -1,17 +1,15 @@
 <?php
-// Appwide Head file
-include 'head.php';
+// Include the head
+include(__DIR__ . '/../includes/head.php');
 ?>
-</head>
-
-<body>
-    <?php
-    // Appwide Header file
-    include 'header.php';
-    ?>
+<title> NATE-PRINTDB </title>
+<?php
+// Include the header
+include(__DIR__ . '/../includes/header.php');
+?>
     
     <?php
-    include 'serverCreds.php';
+    include (__DIR__ . '/../config/serverCreds.php');
     ?>
 
     <?php
@@ -60,9 +58,8 @@ include 'head.php';
     $conn->close();
     ?>
 
-    <?php
-    // Appwide Footer file
-    include 'footer.php';
-    ?>
+<?php
+include(__DIR__ . '/../includes/footer.php');
+?>
 
     </html>

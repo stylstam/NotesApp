@@ -1,13 +1,11 @@
 <?php
-require_once 'database.php';
+require_once(__DIR__ . '/../config/database.php');
+
 ?>
 
 <?php
-// Appwide Head file
-include 'head.php';
-?>
-</head>
-<?php
+include(__DIR__ . '/../includes/head.php');
+
 
 // Get a list of tables in the database
 $result = $conn->query("SHOW TABLES");

@@ -1,5 +1,5 @@
 <?php
-include 'serverCreds.php';
+include(__DIR__ . '/../config/serverCreds.php');
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
