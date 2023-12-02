@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once(__DIR__ . '/../config/db.php');
 
 if ($conn) {
     echo "Connected successfully!";
@@ -8,4 +8,3 @@ if ($conn) {
 }
 
 $conn->close();
-?>

@@ -1,0 +1,101 @@
+/* WEBSITE WIDE STYLES */
+html {
+    background-color: #343541;
+    color: white;
+    transition: all 0.3s ease;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    padding: 3rem;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+    /* color: white; */
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* WEBSITE WIDE USED CLASSES START*/
+
+/* LIGHT MODE SETTINGS */
+.light {
+    background-color: white;
+    color: black;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.centeredH {
+    display: flex;
+    justify-content: center;
+}
+
+.centeredV {
+    display: flex;
+    align-items: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #63624F;
+    border-radius: 5px;
+    color: white;
+    background-color: #63624F;
+    transition: all 0.3s ease;
+}
+
+.btn-main:hover {
+    background-color: #ACAA97;
+    border-color: #ACAA97;
+    color: white;
+}
+
+.btn-scnd {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #63624F;
+    border-radius: 5px;
+    color: white;
+    background-color: #63624F;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-scnd:hover {
+    background-color: #ACAA97;
+    border-color: #ACAA97;
+    color: white;
+}
+
+/* WEBSITE WIDE USED CLASSES END */
+
+#mainContainer {
+    height: 500px;
+    width: 100%;
+}

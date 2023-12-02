@@ -8,11 +8,15 @@ function logout() {
 
 // Update the notesContainer with the fetched notes
 function displayNotes(notes) {
-    // Update the HTML to display notes
+
+    // Loop through the notes and print them
+    notes.forEach(function (note) {
+        console.log(note);
+    });
 }
 
 // Event listener for noteForm submission
-document.getElementById('noteForm').addEventListener('submit', function(event) {
+document.getElementById('noteForm').addEventListener('submit', function (event) {
     event.preventDefault();
     // Implement AJAX request to save the note
 });
