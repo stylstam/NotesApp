@@ -40,7 +40,13 @@ include(__DIR__ . '/../includes/header.php');
                 echo "<p>" . $row["note_content"] . "</p>";
                 echo "<p>\"" . $row["posted_by"] . "\"</p>";
                 // Add an "Edit" button with a link to the updateNote.php page
-                echo '<a class="btn-main" href="updateNote.php?note_id=' . $nId . '">Edit</a>';
+                echo '<form action="updateNote.php" method="post">
+
+                        <input type="hidden" name="note_id" value="' . $nId . '">
+                        <button type="submit" class="btn-main">Edit</button>
+
+                    </form>';
+                // echo '<a class="btn-main" href="updateNote.php?note_id=' . $nId . '">Edit</a>';
                 echo "</div>";
             }
         } else {
@@ -53,6 +59,7 @@ include(__DIR__ . '/../includes/header.php');
 </div>
 
 </body>
+
 </html>
 
 <?php
