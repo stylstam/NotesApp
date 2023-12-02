@@ -20,59 +20,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $noteTitle = $row['note_title'];
         $noteContent = $row['note_content'];
 
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve note ID
-    $noteId = isset($_POST['note_id']) ? (int)$_POST['note_id'] : null;
+        // Check if the form is submitted
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Retrieve note ID
+            $noteId = isset($_POST['note_id']) ? (int)$_POST['note_id'] : null;
 
-    // Check if the username is set in the session
-    if (isset($_SESSION['username']) && !empty($noteId)) {
-        $postedBy = $_SESSION['username'];
+            // Check if the username is set in the session
+            if (isset($_SESSION['username']) && !empty($noteId)) {
+                $postedBy = $_SESSION['username'];
 
-        // Check if the delete_note flag is set
-        if (isset($_POST['delete_note'])) {
-            // Perform SQL delete using prepared statement
-            $deleteNoteQuery = "DELETE FROM Notes WHERE id = ? AND posted_by = ?";
-            $deleteNoteStmt = mysqli_prepare($conn, $deleteNoteQuery);
-            mysqli_stmt_bind_param($deleteNoteStmt, "is", $noteId, $postedBy);
-            $deleteNoteResult = mysqli_stmt_execute($deleteNoteStmt);
+                    // Update note only if form fields are present in $_POST
+                    if (isset($_POST['title']) && isset($_POST['content'])) {
+                        $noteTitle = $_POST['title'];
+                        $noteContent = $_POST['content'];
 
-            if ($deleteNoteResult) {
-                $_SESSION['note_deleted'] = true;
+                        // Perform SQL update using prepared statement
+                        $updateNoteQuery = "UPDATE Notes SET note_title = ?, note_content = ? WHERE id = ? AND posted_by = ?";
+                        $updateNoteStmt = mysqli_prepare($conn, $updateNoteQuery);
+                        mysqli_stmt_bind_param($updateNoteStmt, "ssis", $noteTitle, $noteContent, $noteId, $postedBy);
+                        $updateNoteResult = mysqli_stmt_execute($updateNoteStmt);
+
+                        if ($updateNoteResult) {
+                            $_SESSION['note_updated'] = true;
+                        } else {
+                            echo "Error updating note: " . mysqli_stmt_error($updateNoteStmt);
+                        }
+
+                        // Close the prepared statement
+                        mysqli_stmt_close($updateNoteStmt);
+                    } else {
+                        $_SESSION['error'] = "Form fields 'title' and 'content' are missing.";
+                    }
+                
             } else {
-                echo "Error deleting note: " . mysqli_stmt_error($deleteNoteStmt);
-            }
-
-            // Close the prepared statement
-            mysqli_stmt_close($deleteNoteStmt);
-        } else {
-            // Update note only if form fields are present in $_POST
-            if (isset($_POST['title']) && isset($_POST['content'])) {
-                $noteTitle = $_POST['title'];
-                $noteContent = $_POST['content'];
-
-                // Perform SQL update using prepared statement
-                $updateNoteQuery = "UPDATE Notes SET note_title = ?, note_content = ? WHERE id = ? AND posted_by = ?";
-                $updateNoteStmt = mysqli_prepare($conn, $updateNoteQuery);
-                mysqli_stmt_bind_param($updateNoteStmt, "ssis", $noteTitle, $noteContent, $noteId, $postedBy);
-                $updateNoteResult = mysqli_stmt_execute($updateNoteStmt);
-
-                if ($updateNoteResult) {
-                    $_SESSION['note_updated'] = true;
-                } else {
-                    echo "Error updating note: " . mysqli_stmt_error($updateNoteStmt);
-                }
-
-                // Close the prepared statement
-                mysqli_stmt_close($updateNoteStmt);
-            } else {
-                echo "Form fields 'title' and 'content' are missing.";
+                echo "Invalid or missing note ID.";
             }
         }
-    } else {
-        echo "Invalid or missing note ID.";
-    }
-}
     } else {
         // Handle error, e.g., note not found
         echo "Error fetching note data: " . $conn->error;
@@ -142,7 +125,7 @@ include(__DIR__ . '/../includes/header.php');
         <button type="submit">Edit Note</button>
     </form>
 
-    <form action="" method="post">
+    <form action="../scripts/deleteNoteBnd.php" method="post">
         <input type="hidden" name="note_id" value="<?php echo (int)$noteId; ?>">
         <input type="hidden" name="delete_note" value="true">
 
