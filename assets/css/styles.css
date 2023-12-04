@@ -1,7 +1,9 @@
+@import 'globalColours.css';
+
 /* WEBSITE WIDE STYLES */
 html {
-    background-color: #343541;
-    color: white;
+    background-color: var(--background-color);
+    color: var(--text-color);
     transition: all 0.3s ease;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -14,23 +16,15 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 20px;
-    /* color: white; */
 }
 
 a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
 }
 
 
 /* WEBSITE WIDE USED CLASSES START*/
-
-/* LIGHT MODE SETTINGS */
-.light {
-    background-color: white;
-    color: black;
-}
-
 
 .text-center {
     text-align: center;
@@ -51,46 +45,36 @@ a {
     flex-direction: column;
 }
 
+.d-flex {
+    display: flex;
+}
+
+.items-flex-start{
+    align-items: flex-start;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
 .btn-main {
     display: inline-block;
     padding: 10px 20px;
+    margin: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    border: 2px solid #63624F;
+    border: 2px solid var(--secondary-color);
     border-radius: 5px;
-    color: white;
-    background-color: #63624F;
+    color: var(--text-color);
+    background-color: var(--primary-color);
     transition: all 0.3s ease;
 }
 
 .btn-main:hover {
-    background-color: #ACAA97;
-    border-color: #ACAA97;
-    color: white;
-}
-
-.btn-scnd {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid #63624F;
-    border-radius: 5px;
-    color: white;
-    background-color: #63624F;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.btn-scnd:hover {
-    background-color: #ACAA97;
-    border-color: #ACAA97;
-    color: white;
+    background-color: var(--secondary-color);
 }
 
 /* WEBSITE WIDE USED CLASSES END */

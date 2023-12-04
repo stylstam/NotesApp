@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once(__DIR__ . '/../config/db.php');
+session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
@@ -47,29 +47,32 @@ $conn->close();
 
 <?php include(__DIR__ . '/../includes/head.php'); ?>
 
-    <title>Delete Account</title>
+<title>Delete Account</title>
 
 
-    <?php include(__DIR__ . '/../includes/header.php'); ?>
+<?php include(__DIR__ . '/../includes/header.php'); ?>
 
+
+<div class="d-flex justify-content-center">
     <div class="formContainer">
         <h2 class="text-center">Delete Account</h2>
 
-        <?php if (isset($deleteErrorMessage)): ?>
+        <?php if (isset($deleteErrorMessage)) : ?>
             <p style="color: red;"><?php echo $deleteErrorMessage; ?></p>
         <?php endif; ?>
 
         <form class="form" id="deleteAccountForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label class="label">Are you sure you want to delete your account?</label>
 
-            <div class="checkbox">
-                <input type="checkbox" id="confirm_delete" name="confirm_delete">
-                <label for="confirm_delete">Yes, I'm sure</label>
+            <div>
+                <input class="checkbox" type="checkbox" id="confirm_delete" name="confirm_delete">
+                <label class="label" for="confirm_delete">Yes, I'm sure</label>
             </div>
 
             <button class="btn-main" type="submit">Delete Account</button>
         </form>
     </div>
+</div>
 
 </body>
 

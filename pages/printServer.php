@@ -7,28 +7,31 @@ include(__DIR__ . '/../includes/head.php');
 // Include the header
 include(__DIR__ . '/../includes/header.php');
 ?>
-    
+
+<?php
+include(__DIR__ . '/../config/serverCreds.php');
+?>
+
+<?php
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Select the specific database
+$conn->select_db($databaseName);
+
+// Query to retrieve all tables in the selected database
+$tablesQuery = "SHOW TABLES";
+$tablesResult = $conn->query($tablesQuery);
+?>
+
+<div class="note">
     <?php
-    include (__DIR__ . '/../config/serverCreds.php');
-    ?>
-
-    <?php
-  
-    // Create connection
-    $conn = new mysqli($servername, $username, $password);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Select the specific database
-    $conn->select_db($databaseName);
-
-    // Query to retrieve all tables in the selected database
-    $tablesQuery = "SHOW TABLES";
-    $tablesResult = $conn->query($tablesQuery);
-
     if ($tablesResult->num_rows > 0) {
         // Output data of each table
         while ($tableRow = $tablesResult->fetch_row()) {
@@ -57,9 +60,10 @@ include(__DIR__ . '/../includes/header.php');
     // Close connection
     $conn->close();
     ?>
+</div>
 
 <?php
 include(__DIR__ . '/../includes/footer.php');
 ?>
 
-    </html>
+</html>

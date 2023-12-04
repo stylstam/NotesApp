@@ -1,5 +1,6 @@
-/* FORM STYLING START */
+@import 'globalColours.css';
 
+/* FORM STYLING START */
 .form {
     max-width: 300px;
     margin: 0 auto;
@@ -9,8 +10,7 @@
     display: block;
     margin-bottom: 8px;
 
-    transform: translateY(-50%);
-    color: #8a8a8a;
+    color: var(--secondary-colour);
     font-size: 16px;
     pointer-events: none;
     transition: 0.3s ease-out;
@@ -27,7 +27,7 @@
     border: none;
     border-radius: 8px;
     background-color: #262626;
-    color: #fff;
+    color: antiquewhite;
     font-size: 16px;
     outline: none;
 }
@@ -45,6 +45,11 @@
     transition: 0.3s;
 }
 
+
 .formContainer {
     text-align: center;
+    padding: 15px;
+    width: fit-content;
+    background-color: var(--primary-color);
+    box-shadow: 5px 5px 10px #262626;
 }

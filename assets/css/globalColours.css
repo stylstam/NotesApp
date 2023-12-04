@@ -1,0 +1,21 @@
+/* COLOURS */
+
+:root {
+  --text-color-main: white;
+  --background-color-main: #343541;
+  --primary-color-main: #4B4C5D;
+  --secondary-color-main: #ccccce;
+  --extra-color-main: #9799AC;
+
+  --text-color: white;
+  --background-color: #343541;
+  --primary-color: #4B4C5D;
+  --secondary-color: #ccccce;
+  --extra-color: #A5A5A8;
+
+  --text-color-light: black;
+  --background-color-light: white;
+  --primary-color-light: #B4B3A2;
+  --secondary-color-light: #333133;
+  --extra-color-light: #5A5A57;
+}
