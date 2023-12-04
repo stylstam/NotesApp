@@ -1,6 +1,4 @@
 <?php
-require_once(__DIR__ . '/../config/database.php');
-
 // Include the head
 include(__DIR__ . '/../includes/head.php');
 ?>
@@ -8,6 +6,8 @@ include(__DIR__ . '/../includes/head.php');
 <?php
 // Include the header
 include(__DIR__ . '/../includes/header.php');
+
+require_once(__DIR__ . '/../config/database.php');
 ?>
 
 
