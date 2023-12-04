@@ -1,0 +1,24 @@
+@import 'globalColours.css';
+
+.notesContainer {
+    width: 100%;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: #262626 1px solid;
+}
+
+.note {
+    padding: 10px 25px;
+    margin: 15px 20px;
+    box-shadow: 5px 5px 10px #262626;
+    border-radius: 10px;
+    border: #262626 2px solid;
+}
+
+.note_contnent {
+    padding: 20px;
+    background-color: #262626;
+    border-radius: 10px;
+    color: antiquewhite;
+    text-wrap: wrap;
+}

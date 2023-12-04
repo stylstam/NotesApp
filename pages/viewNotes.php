@@ -1,7 +1,7 @@
 <?php
-session_start();
 require_once(__DIR__ . '/../config/db.php');
 include(__DIR__ . '/../config/serverCreds.php');
+session_start();
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $databaseName);
@@ -26,36 +26,51 @@ include(__DIR__ . '/../includes/head.php');
 include(__DIR__ . '/../includes/header.php');
 ?>
 
-<div class="formContainer">
-    <h2 class="text-center">My Notes</h2>
+<div class="container">
+    <h2 class="text-center">All Notes</h2>
+    
+    <?php
+    if (isset($_SESSION['user_id'])) {
+    ?>
+        <a class="btn-main text-center" href="createNote.php">Add a Note</a>
+    <?php
+    }
+    ?>
 
-    <div id="notesContainer">
-        <?php
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while ($row = $result->fetch_assoc()) {
-                $nId = $row["id"];
-                echo "<div>";
-                echo "<h3>" . $row["note_title"] . "</h3>";
-                echo "<p>" . $row["note_content"] . "</p>";
-                echo "<p>\"" . $row["posted_by"] . "\"</p>";
-                // Add an "Edit" button with a link to the updateNote.php page
-                echo '<form action="updateNote.php" method="post">
+</div>
 
-                        <input type="hidden" name="note_id" value="' . $nId . '">
-                        <button type="submit" class="btn-main">Edit</button>
+<div class="d-flex justify-content-center">
+    <div class="formContainer d-flex items-flex-start">
 
-                    </form>';
-                // echo '<a class="btn-main" href="updateNote.php?note_id=' . $nId . '">Edit</a>';
-                echo "</div>";
+
+        <div class="notesContainer d-flex">
+            <?php
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    $nId = $row["id"];
+                    echo '<div class="note">';
+                    echo '<h3 class="note_title">' . $row["note_title"] . '</h3>';
+                    echo '<p class="note_contnent">' . $row["note_content"] . '</p>';
+                    echo '<p class="note_author">posted by: "' . $row["posted_by"] . '"</p>';
+
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<form action="updateNote.php" method="post">
+                            <input type="hidden" name="note_id" value="' . $nId . '">
+                            <button type="submit" class="btn-main">Edit</button>
+                          </form>';
+                    }
+
+                    echo '</div>';
+                }
+            } else {
+                echo "No notes found.";
             }
-        } else {
-            echo "No notes found.";
-        }
-        ?>
+            ?>
+        </div>
+
     </div>
 
-    <a class="btn-main" href="createNote.php">New Note</a>
 </div>
 
 </body>

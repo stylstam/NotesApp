@@ -52,4 +52,3 @@ mysqli_close($conn);
 
 header("Location: ../pages/viewNotes.php");
 exit();
-?>

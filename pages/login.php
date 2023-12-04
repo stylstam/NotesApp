@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once(__DIR__ . '/../config/db.php');
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
@@ -47,10 +47,10 @@ include(__DIR__ . '/../includes/header.php');
         <h2 class="text-center formTitle">Login</h2>
         <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <label class="label" for="username">Username:</label>
-            <input class="input" type="text" id="username" name="username" required>
+            <input class="input" type="text" id="username" name="username" placeholder="Username" required>
 
             <label class="label" for="password">Password:</label>
-            <input class="input" type="password" id="password" name="password" required>
+            <input class="input" type="password" id="password" name="password" placeholder="Password" required>
 
             <button class="btn-main" type="submit">Login</button>
         </form>

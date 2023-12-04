@@ -3,16 +3,14 @@
 
 <body>
     <div class="container" id="headerT">
-        <a class="headerTitle" href="/pages/home.php">
+        <a class="headerTitle" href="../pages/home.php">
             <h1 class="hText">NATE</h1>
-            <img class="hLogo" src="/assets/img/favicon.svg" alt="SVG Logo">
+            <img class="hLogo" src="../assets/img/favicon.svg" alt="SVG Logo">
         </a>
     </div>
-    <div class="" id="">
-        <?php
-        session_start();
-        ?>
-    </div>
+    <?php
+    session_start();
+    ?>
 
     <nav class="hNav">
         <ul>
@@ -20,31 +18,31 @@
             // Check if the user is logged in
 
             if (isset($_SESSION['user_id'])) {
-                // User is logged in, show logout option
-                // echo "Logged in as: " . $_SESSION['username'];
                 echo '<li><a class="nava" href="/scripts/logout.php">Logout</a></li>';
-
+                
+                echo '<li><a class="nava" href="/pages/viewNotes.php">View Notes</a></li>';
+                
                 echo '<li><a class="nava" href="/pages/deleteAccount.php">Delete Account</a></li>';
+
+                echo 'Logged usser: "' . $_SESSION['username'] . '"';
             } else {
                 // User is not logged in, show login and register options
                 echo '<li><a class="nava" href="login.php">Login</a></li>';
                 echo '<li><a class="nava" href="register.php">Register</a></li>';
+                echo '<li><a class="nava" href="/pages/viewNotes.php">View Notes</a></li>';
             }
             ?>
         </ul>
-        <ul>
+        <!-- <ul>
             <li><a class="nava" href="/pages/printServer.php">Print DB</a></li>
             <li><a class="nava" href="/scripts/dropDatabase.php">Drop DB</a></li>
-            <li><a class="nava" href="/pages/viewNotes.php">View Notes</a></li>
-
-        </ul>
+        </ul> -->
     </nav>
 
     <div id="svg-container" onclick="changeContent()">
         <img id="svg-image" src="/assets/img/sun.svg" alt="SVG Image">
         <div id="svg-text">Light Mode </div>
     </div>
-
 
     </header>
 

@@ -2,8 +2,6 @@
 require_once(__DIR__ . '/../config/db.php');
 session_start();
 
-include(__DIR__ . '/../config/error.php');
-
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve note ID
@@ -63,4 +61,3 @@ mysqli_close($conn);
 
 header("Location: ../pages/viewNotes.php");
 exit();
-?>

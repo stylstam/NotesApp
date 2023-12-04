@@ -17,7 +17,7 @@ include(__DIR__ . '/../includes/header.php');
     <p> All your notes in one place: Create, Edit or Delete notes! </p>
 
     <?php
-    session_start();
+
     if (isset($_SESSION['user_id'])) {
     ?>
         <a href="viewnotes.php">

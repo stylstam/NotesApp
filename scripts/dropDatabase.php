@@ -22,4 +22,3 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 header("Location: /pages/home.php");
 exit();
-?>
