@@ -42,7 +42,6 @@ include(__DIR__ . '/../includes/header.php');
 <div class="d-flex justify-content-center">
     <div class="formContainer d-flex items-flex-start">
 
-
         <div class="notesContainer d-flex">
             <?php
             if ($result->num_rows > 0) {

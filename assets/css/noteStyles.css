@@ -1,15 +1,24 @@
 @import 'globalColours.css';
 
 .notesContainer {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
     padding: 10px 25px;
     border-radius: 10px;
     border: #262626 1px solid;
 }
 
 .note {
+    flex: 0 0 calc(30% - 30px);
+    margin: 15px;
     padding: 10px 25px;
-    margin: 15px 20px;
+    height: fit-content;
     box-shadow: 5px 5px 10px #262626;
     border-radius: 10px;
     border: #262626 2px solid;
@@ -21,4 +30,5 @@
     border-radius: 10px;
     color: antiquewhite;
     text-wrap: wrap;
+    word-wrap: break-word;
 }
